@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean class="com.beans.Compartment" id="pythonCompartment">
+        <constructor-arg value="Python"/>
+    </bean>
+
+    <bean class="com.beans.Compartment" id="javaCompartment">
+        <constructor-arg value="Java"/>
+    </bean>
+
+    <bean class="com.beans.Compartment" id=".NETCompartment">
+        <constructor-arg value=".NET"/>
+    </bean>
+    <bean class="com.beans.Library" id="library">
+        <property name="compartments">
+            <util:map>
+                <entry key=".NET" value-ref=".NETCompartment"/>
+                <entry key="Python" value-ref="pythonCompartment"/>
+                <entry key="Java" value-ref="javaCompartment"/>
+            </util:map>
+        </property>
+    </bean>
+</beans>
