@@ -4,37 +4,66 @@
        xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
-<!--bean scopers-->
-<!--    singleton: default behavior-->
-<!--    prototype: creates a new instance everytime its needed-->
-<!--    request: scopes bean def to http request. only valid in context of a web aware spring app context-->
-<!--    session: scopes bean to a http session valid in the context of web aware spring app context-->
-<!--global session: scopes a bean def to a global http session. only valid in the context of a web app-->
-<!--<bean id="transactionProcessor" class="com.beans.TransactionProcessor" scope="singleton"/>-->
-<!--    <bean id="transactionFactory" class="com.beans.TransactionFactory"/>-->
-<!--<bean id="transaction" factory-bean="transactionFactory" factory-method="createTransaction">-->
-<!--    <constructor-arg index="0" ref="cust1"/>-->
-<!--    <constructor-arg index="1" ref="cust2"/>-->
-<!--    <constructor-arg index="2" value="10.3"/>-->
-<!--</bean>-->
-<!--    <bean id="cust1" class="com.model.Customer">-->
-<!--        <constructor-arg value="Tim"/>-->
-<!--        <constructor-arg value="20.3"/>-->
-<!--    </bean>-->
-<!--    <bean id="cust2" class="com.model.Customer">-->
-<!--        <constructor-arg value="James"/>-->
-<!--        <constructor-arg value="50.2"/>-->
-<!--    </bean>-->
+
     <bean class="com.beans.Compartment" id="pythonCompartment">
         <constructor-arg value="Python"/>
+        <property name="books">
+            <set>
+                <bean id="book1" class="com.model.Book">
+                    <property name="category" value="Python"/>
+                    <property name="ISBN" value="1234-1-12-123456-6"/>
+                    <property name="title" value="Python Crash Course"/>
+                </bean>
+                <bean id="book1" class="com.model.Book">
+                    <property name="category" value="Python"/>
+                    <property name="ISBN" value="1234-1-12-123456-5"/>
+                    <property name="title" value="Automating the boring stuff with python"/>
+                </bean>
+
+            </set>
+        </property>
     </bean>
 
     <bean class="com.beans.Compartment" id="javaCompartment">
         <constructor-arg value="Java"/>
+        <property name="books">
+            <set>
+                <bean id="book1" class="com.model.Book">
+                    <property name="category" value="Java"/>
+                    <property name="ISBN" value="1234-1-12-123456-3"/>
+                    <property name="title" value="Core Java"/>
+                </bean>
+                <bean id="book1" class="com.model.Book">
+                    <property name="category" value="Java"/>
+                    <property name="ISBN" value="1234-1-12-123456-4"/>
+                    <property name="title" value="Head First Java"/>
+                </bean>
+
+            </set>
+        </property>
     </bean>
 
     <bean class="com.beans.Compartment" id=".NETCompartment">
         <constructor-arg value=".NET"/>
+        <property name="books">
+            <set>
+                <bean id="book1" class="com.model.Book">
+                    <property name="category" value=".NET"/>
+                    <property name="ISBN" value="1234-1-12-123456-1"/>
+                    <property name="title" value=".NET book 1"/>
+                </bean>
+                <bean id="book1" class="com.model.Book">
+                    <property name="category" value=".NET"/>
+                    <property name="ISBN" value="1234-1-12-123456-1"/>
+                    <property name="title" value=".NET book 2"/>
+                </bean>
+                <bean id="book1" class="com.model.Book">
+                    <property name="category" value=".NET"/>
+                    <property name="ISBN" value="1234-1-12-123456-2"/>
+                    <property name="title" value=".NET book 3"/>
+                </bean>
+            </set>
+        </property>
     </bean>
     <bean class="com.beans.Library" id="library">
         <property name="compartments">

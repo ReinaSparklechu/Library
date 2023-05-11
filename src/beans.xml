@@ -7,14 +7,63 @@
 
     <bean class="com.beans.Compartment" id="pythonCompartment">
         <constructor-arg value="Python"/>
+        <property name="books">
+            <set>
+                <bean id="book1" class="com.model.Book">
+                    <property name="category" value="Python"/>
+                    <property name="ISBN" value="1234-1-12-123456-6"/>
+                    <property name="title" value="Python Crash Course"/>
+                </bean>
+                <bean id="book1" class="com.model.Book">
+                    <property name="category" value="Python"/>
+                    <property name="ISBN" value="1234-1-12-123456-5"/>
+                    <property name="title" value="Automating the boring stuff with python"/>
+                </bean>
+
+            </set>
+        </property>
     </bean>
 
     <bean class="com.beans.Compartment" id="javaCompartment">
         <constructor-arg value="Java"/>
+        <property name="books">
+            <set>
+                <bean id="book1" class="com.model.Book">
+                    <property name="category" value="Java"/>
+                    <property name="ISBN" value="1234-1-12-123456-3"/>
+                    <property name="title" value="Core Java"/>
+                </bean>
+                <bean id="book1" class="com.model.Book">
+                    <property name="category" value="Java"/>
+                    <property name="ISBN" value="1234-1-12-123456-4"/>
+                    <property name="title" value="Head First Java"/>
+                </bean>
+
+            </set>
+        </property>
     </bean>
 
     <bean class="com.beans.Compartment" id=".NETCompartment">
         <constructor-arg value=".NET"/>
+        <property name="books">
+            <set>
+                <bean id="book1" class="com.model.Book">
+                    <property name="category" value=".NET"/>
+                    <property name="ISBN" value="1234-1-12-123456-1"/>
+                    <property name="title" value=".NET book 1"/>
+                </bean>
+                <bean id="book1" class="com.model.Book">
+                    <property name="category" value=".NET"/>
+                    <property name="ISBN" value="1234-1-12-123456-1"/>
+                    <property name="title" value=".NET book 2"/>
+                </bean>
+                <bean id="book1" class="com.model.Book">
+                    <property name="category" value=".NET"/>
+                    <property name="ISBN" value="1234-1-12-123456-2"/>
+                    <property name="title" value=".NET book 3"/>
+                </bean>
+            </set>
+        </property>
     </bean>
     <bean class="com.beans.Library" id="library">
         <property name="compartments">
